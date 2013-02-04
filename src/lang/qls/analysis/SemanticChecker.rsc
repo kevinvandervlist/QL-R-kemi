@@ -24,7 +24,9 @@ import lang::qls::tests::ParseHelper;
 
 public set[Message] semanticChecker(Stylesheet s) =
   filenameDoesNotMatchErrors(s) +
+  accompanyingFormNotFoundErrors(s) +
   alreadyUsedQuestionErrors(s) +
+  undefinedQuestionWarnings(s) +
   doubleNameWarnings(s) +
   defaultRedefinitionWarnings(s) +
   accompanyingFormNotFoundWarnings(s);
@@ -40,6 +42,13 @@ public set[Message] filenameDoesNotMatchErrors(Stylesheet s) =
     s@location
   )}
     when s.ident != basename(s@location);
+
+private default set[Message] accompanyingFormNotFoundErrors(Stylesheet s) =
+  {};
+
+private set[Message] accompanyingFormNotFoundErrors(Stylesheet s) =
+  {error("No form found with name <s.ident>", s@location)}
+    when !isFile(accompanyingFormLocation(s));
 
 
 public set[Message] alreadyUsedQuestionErrors(Stylesheet s) {
@@ -58,6 +67,19 @@ public set[Message] alreadyUsedQuestionErrors(Stylesheet s) {
     idents += d.ident;
   }
   return errors;
+}
+
+public set[Message] undefinedQuestionWarnings(Stylesheet s) {
+  warnings = {};
+  typeMap = getTypeMap(accompanyingForm(s));
+  visit(s) {
+    case QuestionDefinition d: {
+      if(identDefinition(d.ident) notin typeMap) {
+        warnings += warning("Question undefined in form", d@location);
+      }
+    }
+  }
+  return warnings;
 }
 
 public set[Message] doubleNameWarnings(Stylesheet s) {
