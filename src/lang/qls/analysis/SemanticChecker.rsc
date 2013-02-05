@@ -20,7 +20,7 @@ import lang::qls::ast::AST;
 import lang::qls::compiler::PrettyPrinter;
 import util::LocationHelper;
 
-import lang::qls::tests::ParseHelper;
+import lang::qls::util::ParseHelper;
 
 public set[Message] semanticChecker(Stylesheet s) =
   filenameDoesNotMatchErrors(s) +
