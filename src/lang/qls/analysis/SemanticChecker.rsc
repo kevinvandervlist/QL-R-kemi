@@ -70,6 +70,9 @@ public set[Message] alreadyUsedQuestionErrors(Stylesheet s) {
 }
 
 public set[Message] undefinedQuestionWarnings(Stylesheet s) {
+  if(!isFile(accompanyingFormLocation(s)))
+    return {};
+  
   warnings = {};
   typeMap = getTypeMap(accompanyingForm(s));
   visit(s) {
@@ -151,7 +154,8 @@ private list[DefaultDefinition] getDefaultRedefinitions(list[&T] definitions) {
   idents = [];
   redefinitions = [];
   for(def <- definitions) {
-    if(!def.defaultDefinition?) continue;
+    if(!def.defaultDefinition?)
+      continue;
     
     d = def.defaultDefinition;
     i = indexOf(idents, d.ident);
