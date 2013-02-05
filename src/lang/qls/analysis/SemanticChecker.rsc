@@ -16,8 +16,12 @@ import Set;
 import String;
 import util::IDE;
 
+import lang::ql::ast::AST;
+
+import lang::qls::analysis::StyleAttrChecker;
 import lang::qls::ast::AST;
 import lang::qls::compiler::PrettyPrinter;
+import lang::qls::util::StyleHelper;
 import util::LocationHelper;
 
 import lang::qls::util::ParseHelper;
@@ -25,6 +29,7 @@ import lang::qls::util::ParseHelper;
 public set[Message] semanticChecker(Stylesheet s) =
   filenameDoesNotMatchErrors(s) +
   accompanyingFormNotFoundErrors(s) +
+  unallowedAttrErrors(s) +
   alreadyUsedQuestionErrors(s) +
   undefinedQuestionErrors(s) +
   doubleNameWarnings(s) +
@@ -168,10 +173,8 @@ private list[DefaultDefinition] getDefaultRedefinitions(list[&T] definitions) {
 private default set[Message] accompanyingFormNotFoundWarnings(Stylesheet s) =
   {};
 
-private set[Message] accompanyingFormNotFoundWarnings(Stylesheet s) =
-  {warning("No form found with name <s.ident>", s@location)}
-    when !isFile(|project://QL-R-kemi/forms/| + "<s.ident>.q");
-
+public list[DefaultDefinition] getDefaultDefinitions(Stylesheet s) =
+  [d | /DefaultDefinition d <- s];
 
 public list[QuestionDefinition] getQuestionDefinitions(Stylesheet s) =
   [d | /QuestionDefinition d <- s];
