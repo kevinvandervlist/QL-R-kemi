@@ -19,22 +19,33 @@ import util::IDE;
 import lang::ql::ast::AST;
 
 import lang::qls::analysis::StyleAttrChecker;
+import lang::qls::analysis::WidgetTypeChecker;
 import lang::qls::ast::AST;
 import lang::qls::compiler::PrettyPrinter;
 import lang::qls::util::StyleHelper;
 import util::LocationHelper;
 
+
 import lang::qls::util::ParseHelper;
+
+public void main() {
+  s = parseStylesheet(|project://QL-R-kemi/stylesheets/proposedSyntax.qs|);
+  //iprintln(getQuestionDefinitions(s));
+  //iprintln(getPageNames(s));
+  //iprintln(getSectionNames(s));
+  errors = semanticChecker(s);
+  iprintln(errors);
+}
 
 public set[Message] semanticChecker(Stylesheet s) =
   filenameDoesNotMatchErrors(s) +
   accompanyingFormNotFoundErrors(s) +
   unallowedAttrErrors(s) +
+  unallowedWidgetErrors(s) +
   alreadyUsedQuestionErrors(s) +
   undefinedQuestionErrors(s) +
   doubleNameWarnings(s) +
-  defaultRedefinitionWarnings(s) +
-  accompanyingFormNotFoundWarnings(s);
+  defaultRedefinitionWarnings(s);
 
 
 public default set[Message] filenameDoesNotMatchErrors(Stylesheet s) = 
@@ -170,8 +181,6 @@ private list[DefaultDefinition] getDefaultRedefinitions(list[&T] definitions) {
   return redefinitions;
 }
 
-private default set[Message] accompanyingFormNotFoundWarnings(Stylesheet s) =
-  {};
 
 public void main() {
   s = parseStylesheet(|project://QL-R-kemi/stylesheets/proposedSyntax.qs|);
