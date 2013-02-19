@@ -58,4 +58,7 @@ stylesheet demo {
     question bornRemark
   }
   
+  default integer {
+    color #FF00FF
+  }
 }
