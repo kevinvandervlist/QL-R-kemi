@@ -61,23 +61,65 @@ their body.
 _Example_
 
 ```
-if(myVal == true) {
+if(myVal == 100) {
     "myBody" boolean myBody
 }
 
-if(myVal == true) {
+if(myVal >= 1000 && (myVal / 10 == 100 || myVal / 100 > 15)) {
     "myFoo" boolean myFoo
 } else {
     "myBar" boolean myBar
 }
 ```
 ### Expression
-* See the syntax. Most of the usual operators are in there.
+* See the [syntax](https://github.com/kevinvandervlist/QL-R-kemi/blob/master/src/lang/ql/syntax/QL.rsc#L50-L79). Most of the usual operators are in there.
 
 ### Types
 The QL language contains various types
-* string: An arbitrary string of text. "Foo", "B a_R", ...
-* integer: An integer. 1, 3, ...
-* money: A fixed-precision decimal number used for money. 1, 13.37, ...
+* string: An arbitrary string of text. 
+
+_Example_
+
+```
+"FOO"
+"BAR"
+```
+* integer: An integer.
+
+_Example_
+
+```
+1
+3
+1253
+96996636
+```
+* money: A fixed-precision decimal number used for money.
+
+_Example_
+
+```
+1.
+1.00
+1.1
+13.37
+17555575.75
+```
 * boolean: A boolean value. true, false
-* date: A date value, in yyyy-mm-dd value, prepended by a $. $2013-02-17, $2000-01-01 
+
+_Example_
+
+```
+true
+false
+```
+
+* date: A date value, in yyyy-mm-dd value, prepended by a $. 
+
+_Example_
+
+```
+$2013-02-17 
+$2000-01-01 
+$1989-07-30
+```
