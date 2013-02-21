@@ -32,7 +32,7 @@ of the questionaire output;
 * A [JQuery-validation plugin](https://github.com/jzaefferer/jquery-validation).
 
 # Deployment
-The resulting folder is a self-contained copy of the questionaire. Just copy the
-folder to a webserver able to execute PHP scripts, and you can start using it.
-The questionaire itself is the index.html, so normally it will be shown when 
-the folder is accessed via a browser.  
+The resulting folder is a self-contained copy of the questionaire. 
+Just copy the folder to a webserver able to execute PHP scripts, and you can start using it. 
+If PHP cannot be executed, form usage still works, but submitting the form will result in a failure.
+The questionaire itself is the index.html, so normally it will be shown when the folder is accessed via a browser.  
