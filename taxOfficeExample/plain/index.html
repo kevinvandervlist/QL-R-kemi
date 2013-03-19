@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- THIS IS AN AUTOMATICALLY GENERATED FILE. DO NOT EDIT! -->
+    <meta charset="utf-8"/>
+    <title>taxOfficeExample</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.validate.js"></script>
+    <script type="text/javascript" src="static.js"></script>
+    <script type="text/javascript" src="checking.js"></script>
+    <script type="text/javascript" src="styling.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+      $(document).ready(function(){
+        validatetaxOfficeExample();
+      });
+    </script>
+  </head>
+  <body>
+    <form id="taxOfficeExample" method="post" action="form.php">
+
+      <div id="hasSoldHouseBlock">
+        <label for="hasSoldHouse">Did you sell a house in 2010?</label>
+        <select id="hasSoldHouse" name="hasSoldHouse" form="taxOfficeExample">
+        <option value="">Choose an answer</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+        </select>
+      </div>
+      
+
+      <div id="hasBoughtHouseBlock">
+        <label for="hasBoughtHouse">Did you buy a house in 2010?</label>
+        <select id="hasBoughtHouse" name="hasBoughtHouse" form="taxOfficeExample">
+        <option value="">Choose an answer</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+        </select>
+      </div>
+      
+
+      <div id="hasMaintLoanBlock">
+        <label for="hasMaintLoan">Did you enter a loan for maintenance/reconstruction?</label>
+        <select id="hasMaintLoan" name="hasMaintLoan" form="taxOfficeExample">
+        <option value="">Choose an answer</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+        </select>
+      </div>
+      
+
+      <div id="sellingPriceBlock">
+        <label for="sellingPrice">What was the selling price of the house?</label>
+        <input type="money" id="sellingPrice" name="sellingPrice" />
+      </div>
+      
+
+      <div id="privateDebtBlock">
+        <label for="privateDebt">Private debts for the sold house:</label>
+        <input type="money" id="privateDebt" name="privateDebt" />
+      </div>
+      
+
+      <div id="valueResidueBlock">
+        <label for="valueResidue">Value residue:</label>
+        <input type="money" id="valueResidue" name="valueResidue" disabled="disabled"/>
+      </div>
+      
+
+      <input id="submit" type="submit" value="Submit taxOfficeExample">
+    </form>
+  </body>
+</html>
+  

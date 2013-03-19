@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- THIS IS AN AUTOMATICALLY GENERATED FILE. DO NOT EDIT! -->
+    <meta charset="utf-8"/>
+    <title>demo</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.validate.js"></script>
+    <script type="text/javascript" src="static.js"></script>
+    <script type="text/javascript" src="checking.js"></script>
+    <script type="text/javascript" src="styling.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+      $(document).ready(function(){
+        validatedemo();
+      });
+    </script>
+  </head>
+  <body>
+    <form id="demo" method="post" action="form.php">
+
+      <div id="theAgeBlock">
+        <label for="theAge">What is your age? The conditional is set at >= 18</label>
+        <input type="integer" id="theAge" name="theAge" />
+      </div>
+      
+
+      <div id="theAge2Block">
+        <label for="theAge2">Age again, but this time with a slider when styling is used</label>
+        <input type="integer" id="theAge2" name="theAge2" />
+      </div>
+      
+
+      <div id="ofAgeBlock">
+        <label for="ofAge">Are you 18 or older? This is the second part of the conditional (ofAge == true)</label>
+        <select id="ofAge" name="ofAge" form="demo">
+        <option value="">Choose an answer</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+        </select>
+      </div>
+      
+
+      <div id="ofAge2Block">
+        <label for="ofAge2">And another of age, but with a radio button if styling is used.</label>
+        <select id="ofAge2" name="ofAge2" form="demo">
+        <option value="">Choose an answer</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+        </select>
+      </div>
+      
+
+      <div id="hourlyRateBlock">
+        <label for="hourlyRate">Now, since you are 18 or older, the form can be started. What's your hourly rate on your job?</label>
+        <input type="money" id="hourlyRate" name="hourlyRate" />
+      </div>
+      
+
+      <div id="lowRemarkBlock">
+        <label for="lowRemark">Bad: Your income is very low. Any remarks?</label>
+        <input type="string" id="lowRemark" name="lowRemark" />
+      </div>
+      
+
+      <div id="averageRemarkBlock">
+        <label for="averageRemark">OK: Your income is average. Any remarks?</label>
+        <input type="string" id="averageRemark" name="averageRemark" />
+      </div>
+      
+
+      <div id="highRemarkBlock">
+        <label for="highRemark">Great: Your income is very high. Any remarks?</label>
+        <input type="string" id="highRemark" name="highRemark" />
+      </div>
+      
+
+      <div id="hoursAWeekBlock">
+        <label for="hoursAWeek">How many hours do you work in a week?</label>
+        <input type="integer" id="hoursAWeek" name="hoursAWeek" />
+      </div>
+      
+
+      <div id="weeklyIncomeBlock">
+        <label for="weeklyIncome">Fields can also be automatically calculated. This result is your weekly amount</label>
+        <input type="money" id="weeklyIncome" name="weeklyIncome" disabled="disabled"/>
+      </div>
+      
+
+      <div id="birthdateBlock">
+        <label for="birthdate">What's your birthdate? Date is also an input format</label>
+        <input type="date" id="birthdate" name="birthdate" />
+      </div>
+      
+
+      <div id="bornRemarkBlock">
+        <label for="bornRemark">You're born before the 1st of January 2000</label>
+        <input type="string" id="bornRemark" name="bornRemark" />
+      </div>
+      
+
+      <div id="theAgeToYoungBlock">
+        <label for="theAgeToYoung">The conditional evaluated to false. You could be to young.</label>
+        <select id="theAgeToYoung" name="theAgeToYoung" form="demo">
+        <option value="">Choose an answer</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+        </select>
+      </div>
+      
+
+      <input id="submit" type="submit" value="Submit demo">
+    </form>
+  </body>
+</html>
+  
