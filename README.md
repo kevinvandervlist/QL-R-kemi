@@ -16,6 +16,9 @@ These declarations will be compiled to a interactive questionnaire consisting of
 The second part of this assignment was building a DSL which extends the questionnaires, by being able to declare styling attributes for the questionnaire. 
 This will generate additional CSS and JavaScript to enhance the questionnaire with the styling attributes.
 
+# Demonstration
+* [A demonstration can be found here](http://kevinvandervlist.github.com/QL-R-kemi/)
+
 # Documentation
 * [Form generation and deployment](doc/Generation.md) 
 * [Form declaration](doc/Form.md)
