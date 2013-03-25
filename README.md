@@ -6,12 +6,13 @@ sc-ql-2012-2013-rascal
 
 # About
 
-Code for the Rascal variant of lab assignment Software Construction 2012-2013. 
-The assignment can be found at [this page](doc/Assignment.md). 
-We did 'Variant 3: Advanced Track'.
+Rascal implementation of a DSL for questionnaires, QL, which is the [assignment](http://www.languageworkbenches.net/images/5/53/Ql.pdf) 
+for the [Language Workbench Competition 2013](http://www.languageworkbenches.net/index.php?title=LWC_2013). 
 
-In short: We have created a DSL to declare questionnaires. 
-These declarations will be compiled to a interactive questionnaire consisting of a HTML form, JavaScript control flow and input checking and PHP input validation (resulting in a validated JSON object containing all the answers). 
+
+Questionnaires consist of (conditional) declarations of questions.
+These declarations will be compiled to a interactive questionnaire consisting of a HTML form, JavaScript control flow and input checking 
+and PHP input validation (resulting in a validated JSON object containing all the answers). 
 
 The second part of this assignment was building a DSL which extends the questionnaires, by being able to declare styling attributes for the questionnaire. 
 This will generate additional CSS and JavaScript to enhance the questionnaire with the styling attributes.
