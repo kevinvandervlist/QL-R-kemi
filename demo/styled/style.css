@@ -18,3 +18,52 @@ body {
   margin: 60px auto;
 }
 
+/* Question bornRemark */
+
+/* Question ofAge */
+
+#ofAgeBlock *:not(:first-child) { color: #FF0000; }
+#ofAgeBlock *:not(:first-child) { font-size: 20px; }
+#ofAgeBlock *:not(:first-child) { font-family: "Courier"; }
+
+/* Question weeklyIncome */
+#weeklyIncomeBlock *:not(:first-child) { color: #3C3C3C; }
+#weeklyIncomeBlock *:not(:first-child) { font-size: 14px; }
+#weeklyIncomeBlock *:not(:first-child) { font-family: "Arial"; }
+
+/* Question ofAge2 */
+
+#ofAge2Block *:not(:first-child) { color: #00AA00; }
+
+/* Question averageRemark */
+
+/* Question birthdate */
+
+
+/* Question theAgeToYoung */
+
+/* Question theAge */
+
+#theAgeBlock *:not(:first-child) { color: #FF00FF; }
+
+/* Question hourlyRate */
+
+/* Question highRemark */
+
+/* Question lowRemark */
+
+/* Question theAge2 */
+
+#theAge2Block label:first-child { font-family: "Comic Sans MS"; }
+#theAge2Block *:not(:first-child) { font-size: 14px; }
+#theAge2Block *:not(:first-child) { color: #999999; }
+#theAge2Block label:first-child { font-size: 16px; }
+#theAge2Block *:not(:first-child) { font-family: "Arial"; }
+#theAge2Block label:first-child { color: #2E31C2; }
+#theAge2 { width: 400px; }
+
+/* Question hoursAWeek */
+#hoursAWeekBlock *:not(:first-child) { color: #FF00FF; }
+
+
+    

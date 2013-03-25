@@ -18,3 +18,44 @@ body {
   margin: 60px auto;
 }
 
+/* Question sellingPrice */
+
+#sellingPriceBlock label:first-child { font-family: "Comic Sans MS"; }
+#sellingPriceBlock *:not(:first-child) { color: #999999; }
+#sellingPriceBlock *:not(:first-child) { font-size: 14px; }
+#sellingPriceBlock label:first-child { font-size: 16px; }
+#sellingPriceBlock *:not(:first-child) { font-family: "Arial"; }
+#sellingPriceBlock label:first-child { color: #2E31C2; }
+#sellingPrice { width: 400px; }
+
+/* Question hasBoughtHouse */
+
+
+/* Question valueResidue */
+
+#valueResidueBlock label:first-child { font-family: "Comic Sans MS"; }
+#valueResidueBlock *:not(:first-child) { color: #999999; }
+#valueResidueBlock *:not(:first-child) { font-size: 14px; }
+#valueResidueBlock label:first-child { font-size: 16px; }
+#valueResidueBlock *:not(:first-child) { font-family: "Arial"; }
+#valueResidueBlock label:first-child { color: #2E31C2; }
+#valueResidue { width: 400px; }
+
+/* Question hasMaintLoan */
+
+
+/* Question hasSoldHouse */
+
+
+/* Question privateDebt */
+
+#privateDebtBlock label:first-child { font-family: "Comic Sans MS"; }
+#privateDebtBlock *:not(:first-child) { color: #999999; }
+#privateDebtBlock *:not(:first-child) { font-size: 14px; }
+#privateDebtBlock label:first-child { font-size: 16px; }
+#privateDebtBlock *:not(:first-child) { font-family: "Arial"; }
+#privateDebtBlock label:first-child { color: #2E31C2; }
+#privateDebt { width: 400px; }
+
+
+    
