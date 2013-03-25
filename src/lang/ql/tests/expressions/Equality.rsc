@@ -15,15 +15,15 @@ import lang::ql::util::ParseHelper;
 import lang::ql::util::Random;
 
 public test bool testEq1() = 
-  parseExpr("a == b") is eq;
+  parseExpr("a == b") is equ;
 public test bool testEq2() = 
-  parseExpr("a == (b + c)") is eq;
+  parseExpr("a == (b + c)") is equ;
 public test bool testEq3() = 
-  parseExpr("(a + b) == c") is eq;
+  parseExpr("(a + b) == c") is equ;
 public test bool testEq4() = 
-  parseExpr("(a == b)") is eq;
+  parseExpr("(a == b)") is equ;
 public test bool testEq5() = 
-  parseExpr("(a != b) == c") is eq;
+  parseExpr("(a != b) == c") is equ;
 
 public test bool testRandomEq() = 
-  parseExpr("<randomWord()> == <randomWord()>") is eq;
+  parseExpr("<randomWord()> == <randomWord()>") is equ;

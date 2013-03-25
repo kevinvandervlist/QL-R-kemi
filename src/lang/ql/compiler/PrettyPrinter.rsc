@@ -90,7 +90,7 @@ private str prettyPrintParen(p:geq(left, right)) =
   printExpression(p, 
     "<prettyPrintParen(left)> \>= <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:eq(left, right)) =
+private str prettyPrintParen(p:equ(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> == <prettyPrintParen(right)>");
 
 private str prettyPrintParen(p:neq(left, right)) =

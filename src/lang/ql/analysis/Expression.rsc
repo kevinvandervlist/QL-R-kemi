@@ -51,7 +51,7 @@ private map[str, set[Type]] typesByOperator = (
   "leq": {i(), m(), d(), s()},
   "gt": {i(), m(), d(), s()},
   "geq": {i(), m(), d(), s()},
-  "eq": {i(), m(), b(), d(), s()},
+  "equ": {i(), m(), b(), d(), s()},
   "neq": {i(), m(), b(), d(), s()},
   
   "and": {b()},
@@ -123,7 +123,7 @@ private tuple[Type, set[Message]] inferExprType(Types types,
   analyzeRelationalExpr(types, e, left, right);
 
 private tuple[Type, set[Message]] inferExprType(Types types, 
-    Expr e: eq(Expr left, Expr right)) =
+    Expr e: equ(Expr left, Expr right)) =
   analyzeRelationalExpr(types, e, left, right);
 
 private tuple[Type, set[Message]] inferExprType(Types types, 

@@ -48,7 +48,7 @@ public str phpPrint(gt(left, right)) =
 public str phpPrint(geq(left, right)) =
   "(<phpPrint(left)> \>= <phpPrint(right)>)";
 
-public str phpPrint(eq(left, right)) =
+public str phpPrint(equ(left, right)) =
   "(<phpPrint(left)> == <phpPrint(right)>)";
 
 public str phpPrint(neq(left, right)) =
