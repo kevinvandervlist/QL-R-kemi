@@ -123,7 +123,7 @@ private tuple[Type, set[Message]] inferExprType(Types types,
   analyzeRelationalExpr(types, e, left, right);
 
 private tuple[Type, set[Message]] inferExprType(Types types, 
-    Expr e: keq(Expr left, Expr right)) =
+    Expr e: equ(Expr left, Expr right)) =
   analyzeRelationalExpr(types, e, left, right);
 
 private tuple[Type, set[Message]] inferExprType(Types types, 
