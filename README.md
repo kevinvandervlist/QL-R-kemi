@@ -17,7 +17,7 @@ The second part of this assignment was building a DSL which extends the question
 This will generate additional CSS and JavaScript to enhance the questionnaire with the styling attributes.
 
 # Demonstration
-* [A demonstration can be found here](http://kevinvandervlist.github.com/QL-R-kemi/)
+* [A demonstration can be found here](http://ql-r-kemi.kevinvandervlist.nl/)
 
 # Documentation
 * [Form generation and deployment](doc/Generation.md) 
