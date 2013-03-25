@@ -30,6 +30,7 @@ operations;
 of the questionaire output;
 * A minified [JQuery 1.9.1](http://code.jquery.com/jquery-1.9.1.min.js);
 * A [JQuery-validation plugin](https://github.com/jzaefferer/jquery-validation).
+* [Twitter bootstrap](https://github.com/twitter/bootstrap).
 
 # Deployment
 The resulting folder is a self-contained copy of the questionaire. 
