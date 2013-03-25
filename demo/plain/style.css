@@ -9,4 +9,10 @@ label:first-child {
   display: block;
 }
 
-    
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  margin: 60px 0;
+  text-align: center;
+}
+

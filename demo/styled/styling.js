@@ -74,12 +74,12 @@ function styling() {
   addRadio("ofAge2");
   
   
+  // Question averageRemark
+  
+  
   // Question birthdate
   
   addText("birthdate");
-  
-  
-  // Question averageRemark
   
   
   // Question theAgeToYoung
