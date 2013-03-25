@@ -48,7 +48,7 @@ public str jsPrint(gt(left, right)) =
 public str jsPrint(geq(left, right)) =
   "(<jsPrint(left)> \>= <jsPrint(right)>)";
 
-public str jsPrint(eq(left, right)) =
+public str jsPrint(keq(left, right)) =
   "(<jsPrint(left)> == <jsPrint(right)>)";
 
 public str jsPrint(neq(left, right)) =

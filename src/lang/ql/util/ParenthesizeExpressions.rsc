@@ -67,8 +67,8 @@ public Expr parenizeExpr(p:gt(lhs, rhs)) =
 public Expr parenizeExpr(p:geq(lhs, rhs)) = 
   geq(parenizeExpr(p, lhs), parenizeExpr(p, rhs));
 
-public Expr parenizeExpr(p:eq(lhs, rhs)) = 
-  eq(parenizeExpr(p, lhs), parenizeExpr(p, rhs));  
+public Expr parenizeExpr(p:keq(lhs, rhs)) = 
+  keq(parenizeExpr(p, lhs), parenizeExpr(p, rhs));  
 
 public Expr parenizeExpr(p:neq(lhs, rhs)) = 
   neq(parenizeExpr(p, lhs), parenizeExpr(p, rhs));

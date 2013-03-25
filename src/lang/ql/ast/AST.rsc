@@ -73,7 +73,7 @@ data Expr
   | leq(Expr left, Expr right)
   | gt(Expr left, Expr right)
   | geq(Expr left, Expr rigt)
-  | eq(Expr left, Expr right)
+  | keq(Expr left, Expr right)
   | neq(Expr left, Expr right)
   
   | and(Expr left, Expr right)
