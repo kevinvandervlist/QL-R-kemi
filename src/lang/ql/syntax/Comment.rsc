@@ -17,9 +17,38 @@ syntax Comment
   | SingleLine 
   ;
 
-lexical SingleLine
-  = @category="Comment" "//" ![\n]* $
+syntax SingleLine
+  = only: OnlySingle
+  | embed: StartSingle TailSingle
   ;
+  
+  
+lexical OnlySingle
+  = @category="Comment" "//" SingleChar* $
+  ;
+
+lexical StartSingle
+  = @category="Comment" "//" SingleChar* [\<]
+  ;
+  
+syntax TailSingle
+  = Expr expr MidSingle TailSingle
+  | Expr expr EndSingle
+  ;
+  
+lexical MidSingle
+  = @category="Comment" [\>] SingleChar* [\<]
+  ;
+  
+lexical EndSingle
+  = @category="Comment" [\>] SingleChar* $
+  ;
+
+
+lexical SingleChar
+ = ![\n\<\>]
+ | [\\][\<\>]
+ ;
 
 syntax MultLine
   = only: OnlyComment

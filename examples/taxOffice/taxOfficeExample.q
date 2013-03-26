@@ -6,6 +6,7 @@ form taxOfficeExample {
     boolean hasBoughtHouse
   "Did you enter a loan for maintenance/reconstruction?"
     boolean hasMaintLoan
+    // bla <hasMaintLoan && 2323 > 23>
   if(hasSoldHouse) { 
     /* depends on  <privateDebt < sellingPrice> */
     "What was the selling price of the house?"

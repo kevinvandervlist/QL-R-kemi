@@ -22,6 +22,8 @@ set[Message] checkComments(SAS sas, Tree t) {
   visit (t) {
     case TailComment c:
       msgs += analyzeExpression(sas, implodeExpr(c.expr));
+    case TailSingle c:
+      msgs += analyzeExpression(sas, implodeExpr(c.expr));
   }
   return msgs;
 }
