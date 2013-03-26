@@ -23,6 +23,7 @@ import lang::ql::compiler::web::Web;
 import lang::ql::ide::Outline;
 import lang::ql::\syntax::QL;
 import lang::ql::util::ParseHelper;
+import lang::ql::ide::CrossRef;
 
 private str actionBuild = "Build form";
 private str actionFormat = "Format (removes comments)";
@@ -67,7 +68,9 @@ public void setupQL() {
     }),
     
     annotator(Tree(Tree input) {
-      return input[@messages=semanticChecker(implode(input))];
+      ast = implode(input);
+      input = xref(input);
+      return input[@messages=semanticChecker(ast)];
     }),
     
     popup(

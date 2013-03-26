@@ -10,17 +10,24 @@
 
 module lang::ql::\syntax::Comment
 
-extend lang::ql::\syntax::Expressions;
+//extend lang::ql::\syntax::Expressions;
 
-lexical Comment 
+syntax Comment 
   = MultLine
-  | @category="Comment" "//" ![\n]* $
+  | SingleLine 
   ;
 
+lexical SingleLine
+  = @category="Comment" "//" ![\n]* $
+  ;
 
-lexical MultLine
-  = @category="Comment" "/*" CommentChar* "*/"
+syntax MultLine
+  = OnlyComment
   | StartComment Expr TailComment
+  ;
+  
+lexical OnlyComment
+  = @category="Comment" "/*" CommentChar* "*/"
   ;
   
 lexical TailComment

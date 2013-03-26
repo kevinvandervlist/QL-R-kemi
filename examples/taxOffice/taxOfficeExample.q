@@ -9,6 +9,7 @@ form taxOfficeExample {
     /* depends on  <hasSoldHouse < 3434> */
     "What was the selling price of the house?"
       money sellingPrice
+     
     "Private debts for the sold house:"
       money privateDebt
     "Value residue:"

@@ -1,11 +1,11 @@
 module lang::ql::\syntax::Expressions
 
-extend lang::ql::\syntax::Ident;
-extend lang::ql::\syntax::Boolean;
-extend lang::ql::\syntax::Int;
-extend lang::ql::\syntax::Money;
-extend lang::ql::\syntax::Date;
-extend lang::ql::\syntax::String;
+//extend lang::ql::\syntax::Ident;
+//extend lang::ql::\syntax::Boolean;
+//extend lang::ql::\syntax::Int;
+//extend lang::ql::\syntax::Money;
+//extend lang::ql::\syntax::Date;
+//extend lang::ql::\syntax::String;
 
 syntax Expr
   = ident: Ident name
