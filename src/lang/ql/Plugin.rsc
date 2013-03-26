@@ -7,6 +7,7 @@
 }
 @contributor{Kevin van der Vlist - kevin@kevinvandervlist.nl}
 @contributor{Jimi van der Woning - Jimi.vanderWoning@student.uva.nl}
+@contributor{Tijs van der Storm - storm@cwi.nl}
 
 module lang::ql::Plugin
 
@@ -76,8 +77,6 @@ public void setupQL() {
       <sas, msgs> = analyzeSemantics(sas, ast);
       msgs += filenameDoesNotMatchErrors(ast);
       msgs += checkComments(sas, input);
-      println("messages: <msgs>");
-      //msgs semanticChecker(ast)
       return input[@messages=msgs];
     }),
     

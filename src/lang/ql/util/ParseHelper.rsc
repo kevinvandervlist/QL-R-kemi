@@ -7,6 +7,7 @@
 }
 @contributor{Kevin van der Vlist - kevin@kevinvandervlist.nl}
 @contributor{Jimi van der Woning - Jimi.vanderWoning@student.uva.nl}
+@contributor{Tijs van der Storm - storm@cwi.nl}
 
 module lang::ql::\util::\ParseHelper
 

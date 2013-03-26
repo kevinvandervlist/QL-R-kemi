@@ -4,6 +4,7 @@ form demo {
   "Age again, but this time with a slider when styling is used"
     integer theAge2
   "Are you 18 or older? This is the second part of the conditional (ofAge == true)"
+  /* Are you 18 or older? This is the second part of the conditional <ofAge == true> */
     boolean ofAge
   "And another of age, but with a radio button if styling is used."
     boolean ofAge2

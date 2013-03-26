@@ -1,11 +1,14 @@
+@license{
+  Copyright (c) 2013 
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+}
+@contributor{Kevin van der Vlist - kevin@kevinvandervlist.nl}
+@contributor{Jimi van der Woning - Jimi.vanderWoning@student.uva.nl}
+@contributor{Tijs van der Storm - storm@cwi.nl}
 module lang::ql::\syntax::Expressions
-
-//extend lang::ql::\syntax::Ident;
-//extend lang::ql::\syntax::Boolean;
-//extend lang::ql::\syntax::Int;
-//extend lang::ql::\syntax::Money;
-//extend lang::ql::\syntax::Date;
-//extend lang::ql::\syntax::String;
 
 syntax Expr
   = ident: Ident name
