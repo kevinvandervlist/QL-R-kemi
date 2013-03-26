@@ -24,6 +24,12 @@ Figure form2figure(Form f) {
   str idOf(Conditional c) = "id_<(c.body[0]@location).offset>";
   str idOf(Statement s) = "id_<(s@location).offset>";
 
+  FProperty onClick(Statement q, QuestionText txt) =
+    onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
+          edit(q@location, [highlight(q@location.begin.line, unquote(txt.text))]);
+		  return true;
+	    });
+
   top-down visit (f) {
     case form(_, ss): {
       if (ss != []) {
@@ -35,26 +41,18 @@ Figure form2figure(Form f) {
       }
     }
     case q:question(question(txt, at, n)): 
-       ns += [box(text("<unquote(txt.text)>\n<n.ident>: <at.name>"),
-        onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
-          edit(q@location, [highlight(q@location.begin.line, unquote(txt.text))]);
-		  return true;
-	    }),
+       ns += [box(text("<n.ident>: <at.name>"), onClick(q, txt),
         id(idOf(q)), resizable(false))];
 
     case q:question(question(txt, at, n, e)):
-       ns += [box(text("<unquote(txt.text)>\n<n.ident> = <prettyPrint(e)>"),
-               onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
-          edit(q@location, [highlight(q@location.begin.line, unquote(txt.text))]);
-		  return true;
-	    }),
-       id(idOf(q)), resizable(false))];
+       ns += [ellipse(text("<n.ident> =\n <prettyPrint(e)>", fontSize(10), font("Monospaced")), onClick(q, txt),
+                id(idOf(q)), resizable(false))];
 
     case q:ifCondition(c, eifs, ep): {
        x = idOf(q);
        ns += [ellipse(id(x))];
        for (b <- [c, *eifs]) {
-         es += [edge(x, idOf(b), label(text(prettyPrint(b.condition))))];
+         es += [edge(x, idOf(b), label(text(prettyPrint(b.condition), fontSize(10), font("Monospaced"))))];
          cur = idOf(b);
          for (size(b.body) > 1, s <- b.body[1..]) {
            es += [edge(cur, idOf(s))];
@@ -63,7 +61,7 @@ Figure form2figure(Form f) {
        }
        if (ep != [] && ep[0].body != []) {
          ess = ep[0].body;
-         es += [edge(x, idOf(ess[0]), label(text("otherwise")))];
+         es += [edge(x, idOf(ess[0]), label(text("otherwise", fontSize(10), fontColor("blue"), font("Monospaced"))))];
          cur = idOf(ess[0]);
          for (size(ess) > 1, s <- ess[1..]) {
            es += [edge(cur, idOf(s))];
