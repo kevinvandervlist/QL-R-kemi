@@ -27,9 +27,12 @@ import lang::ql::ide::Outline;
 import lang::ql::\syntax::QL;
 import lang::ql::util::ParseHelper;
 import lang::ql::ide::CrossRef;
+import lang::ql::ide::Visualize;
+import vis::Render;
 
 private str actionBuild = "Build form";
 private str actionFormat = "Format (removes comments)";
+private str actionVisualize = "Visualize form";
 
 private void format(Form f, loc l) =
   writeFile(l, prettyPrint(f));
@@ -87,6 +90,9 @@ public void setupQL() {
         }),
         action(actionFormat, (Tree tree, loc source) {
           format(implode(tree), source);
+        }),
+        action(actionVisualize, (Tree tree, loc source) {
+          render(form2figure(implode(tree)));
         })
       ])
     ), 

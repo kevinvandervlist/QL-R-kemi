@@ -15,10 +15,10 @@ import lang::ql::\ast::AST;
 import lang::ql::\ast::Keyword;
 import lang::ql::util::ParenthesizeExpressions;
 
-private str printExpression(Expr p, str print) = "(<print>)"
+str printExpression(Expr p, str print) = "(<print>)"
   when "parentheses" in getAnnotations(p);
 
-private default str printExpression(Expr p, str print) = print;
+default str printExpression(Expr p, str print) = print;
 
 public str prettyPrint(Form form) =
   "form <ppID(form.formName.ident)> { <for(e <- form.formElements) {>
@@ -53,76 +53,76 @@ public str prettyPrint(Statement item:
 public str prettyPrint(Expr e) =
   prettyPrintParen(parenizeExpr(e));
 
-private str prettyPrintParen(p:pos(Expr posValue)) = 
+str prettyPrintParen(p:pos(Expr posValue)) = 
   printExpression(p, "+<prettyPrintParen(posValue)>");
 
-private str prettyPrintParen(p:neg(Expr negValue)) =
+str prettyPrintParen(p:neg(Expr negValue)) =
   printExpression(p, "-<prettyPrintParen(negValue)>");
 
-private str prettyPrintParen(p:not(Expr notValue)) =
+str prettyPrintParen(p:not(Expr notValue)) =
   printExpression(p, "!<prettyPrintParen(notValue)>");
 
-private str prettyPrintParen(p:mul(multiplicand, multiplier)) =
+str prettyPrintParen(p:mul(multiplicand, multiplier)) =
   printExpression(p, 
     "<prettyPrintParen(multiplicand)> * <prettyPrintParen(multiplier)>");
 
-private str prettyPrintParen(p:div(numerator, denominator)) =
+str prettyPrintParen(p:div(numerator, denominator)) =
   printExpression(p, 
     "<prettyPrintParen(numerator)> / <prettyPrintParen(denominator)>");
 
-private str prettyPrintParen(p:add(leftAddend, rightAddend)) =
+str prettyPrintParen(p:add(leftAddend, rightAddend)) =
   printExpression(p, 
     "<prettyPrintParen(leftAddend)> + <prettyPrintParen(rightAddend)>");
 
-private str prettyPrintParen(p:sub(minuend, subtrahend)) =
+str prettyPrintParen(p:sub(minuend, subtrahend)) =
   printExpression(p, "<prettyPrintParen(minuend)> - <prettyPrintParen(subtrahend)>");
 
-private str prettyPrintParen(p:lt(left, right)) =
+str prettyPrintParen(p:lt(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> \< <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:leq(left, right)) =
+str prettyPrintParen(p:leq(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> \<= <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:gt(left, right)) =
+str prettyPrintParen(p:gt(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> \> <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:geq(left, right)) =
+str prettyPrintParen(p:geq(left, right)) =
   printExpression(p, 
     "<prettyPrintParen(left)> \>= <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:equ(left, right)) =
+str prettyPrintParen(p:equ(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> == <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:neq(left, right)) =
+str prettyPrintParen(p:neq(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> != <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:and(left, right)) =
+str prettyPrintParen(p:and(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> && <prettyPrintParen(right)>");
 
-private str prettyPrintParen(p:or(left, right)) =
+str prettyPrintParen(p:or(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> || <prettyPrintParen(right)>");
 
-private str prettyPrintParen(ident(str name)) =
+str prettyPrintParen(ident(str name)) =
   "<ppID(name)>";
 
-private str prettyPrintParen(\int(int intValue)) =
+str prettyPrintParen(\int(int intValue)) =
   "<intValue>";
 
-private str prettyPrintParen(money(real moneyValue)) =
+str prettyPrintParen(money(real moneyValue)) =
   "<moneyValue>";
 
-private str prettyPrintParen(boolean(bool booleanValue)) =
+str prettyPrintParen(boolean(bool booleanValue)) =
   "<booleanValue>";
 
-private str prettyPrintParen(date(str dateValue)) =
+str prettyPrintParen(date(str dateValue)) =
   "<dateValue>";
 
-private str prettyPrintParen(string(str text)) =
+str prettyPrintParen(string(str text)) =
   "<text>";
 
-private default str ppID(str ident) =
+default str ppID(str ident) =
   ident;
 
-private str ppID(str ident) =
+str ppID(str ident) =
   "\\<ident>"
     when ident in keywords;
