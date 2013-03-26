@@ -22,18 +22,20 @@ lexical SingleLine
   ;
 
 syntax MultLine
-  = OnlyComment
-  | StartComment Expr TailComment
+  = only: OnlyComment
+  | embed: StartComment TailComment
   ;
   
+  
+syntax TailComment
+  = Expr expr MidComment TailComment
+  | Expr expr EndComment
+  ;
+
 lexical OnlyComment
   = @category="Comment" "/*" CommentChar* "*/"
   ;
-  
-lexical TailComment
-  = MidComment TailComment
-  | EndComment
-  ;
+
   
 lexical StartComment
   = @category="Comment" "/*" CommentChar* [\<]

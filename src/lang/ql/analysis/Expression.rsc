@@ -191,7 +191,7 @@ private tuple[Type, set[Message]] analyzeUnaryExpr(Types types, Expr parent,
  * - Members are of allowed type of operator in question
  * - Left and right hand side are of same type
  * - An exception of the above rule is mingling integers and money. 
- *   The resulting tye will be money.
+ *   The resulting tye will be boolean.
  */
 private tuple[Type, set[Message]] analyzeRelationalExpr(Types types,
     Expr parent, Expr lhs, Expr rhs) {
@@ -201,7 +201,7 @@ private tuple[Type, set[Message]] analyzeRelationalExpr(Types types,
   if(lhtype == undef() || rhtype == undef())
     return <err(), rhmessages + lhmessages>;
 
-  if(lhtype notin types[getName(parent)] && rhtype notin types[getName(parent)])
+  if(lhtype notin types[getName(parent)] || rhtype notin types[getName(parent)])
     return 
       <err(), lhmessages + rhmessages + {invalidTypeMessage(parent@location)}>;
   

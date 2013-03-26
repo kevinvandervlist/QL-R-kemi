@@ -17,6 +17,8 @@ import util::IDE;
 import util::Prompt;
 
 import lang::ql::\analysis::SemanticChecker;
+import lang::ql::\analysis::State;
+import lang::ql::\analysis::CommentCheck;
 import lang::ql::\ast::AST;
 import lang::ql::compiler::PrettyPrinter;
 import lang::ql::compiler::web::Web;
@@ -70,7 +72,13 @@ public void setupQL() {
     annotator(Tree(Tree input) {
       ast = implode(input);
       input = xref(input);
-      return input[@messages=semanticChecker(ast)];
+      SAS sas = <(), ()>;
+      <sas, msgs> = analyzeSemantics(sas, ast);
+      msgs += filenameDoesNotMatchErrors(ast);
+      msgs += checkComments(sas, input);
+      println("messages: <msgs>");
+      //msgs semanticChecker(ast)
+      return input[@messages=msgs];
     }),
     
     popup(

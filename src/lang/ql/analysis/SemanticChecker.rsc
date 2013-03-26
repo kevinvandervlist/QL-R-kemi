@@ -35,17 +35,17 @@ public SAS semanticAnalysisState(Form form) {
   return sas;
 }
 
-private default set[Message] filenameDoesNotMatchErrors(Form form) = 
+default set[Message] filenameDoesNotMatchErrors(Form form) = 
   {};
 
-private set[Message] filenameDoesNotMatchErrors(Form form) =
+set[Message] filenameDoesNotMatchErrors(Form form) =
   {formIdentifierDoesNotMatchFilename(form.formName)}
     when form.formName.ident != basename(form.formName@location);
 
-private SAS merge(SAS cur, SAS add) =
+SAS merge(SAS cur, SAS add) =
   <cur.definitions + add.definitions, cur.labels + add.labels>;
   
-private tuple[SAS sas, set[Message] messages] analyzeSemantics(SAS sas, 
+tuple[SAS sas, set[Message] messages] analyzeSemantics(SAS sas, 
     Form form) {
   messages = {};
   
@@ -58,19 +58,19 @@ private tuple[SAS sas, set[Message] messages] analyzeSemantics(SAS sas,
   return <sas, messages>;
 }
 
-private State analyzeSemantics(SAS sas, 
+State analyzeSemantics(SAS sas, 
     Statement item: question(Question question)) = 
   analyzeSemantics(sas, question);
     
-private State analyzeSemantics(SAS sas, Question q:
+State analyzeSemantics(SAS sas, Question q:
     question(QuestionText text, Type \type, IdentDefinition ident)) =
   analyzeSemanticsQuestion(sas, text, \type, ident); 
 
-private State analyzeSemantics(SAS sas, Question q: 
+State analyzeSemantics(SAS sas, Question q: 
     question(QuestionText text, Type \type, IdentDefinition ident, Expr calc)) =
   analyzeSemanticsQuestion(sas, text, \type, ident, calc);
 
-private State analyzeSemanticsQuestion(SAS sas,
+State analyzeSemanticsQuestion(SAS sas,
     QuestionText text, Type \type, IdentDefinition ident, Expr expression) {
   messages = analyzeAssignmentExpression(sas, \type, expression);
     
@@ -79,7 +79,7 @@ private State analyzeSemanticsQuestion(SAS sas,
   return <sas, messages + m>;
 }
 
-private State analyzeSemanticsQuestion(SAS sas, 
+State analyzeSemanticsQuestion(SAS sas, 
     QuestionText text, Type \type, IdentDefinition ident) {
   set[Message] messages = {};
     
@@ -95,7 +95,7 @@ private State analyzeSemanticsQuestion(SAS sas,
 }
 
 
-private State analyzeSemantics(SAS sas, Statement item: 
+State analyzeSemantics(SAS sas, Statement item: 
     ifCondition(Conditional ifPart, list[Conditional] elseIfs, 
     list[ElsePart] elsePart)) {
   set[Message] messages = {};

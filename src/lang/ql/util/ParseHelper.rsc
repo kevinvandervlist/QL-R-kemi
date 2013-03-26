@@ -19,6 +19,9 @@ import lang::ql::\syntax::QL;
 public Form implode(Tree t) = 
   implode(#Form, t);
 
+public Expr implodeExpr(Tree t) = 
+  implode(#Expr, t);
+
 public start[Form] parse(str src, loc l) = 
   parse(#start[Form], src, l);
 
