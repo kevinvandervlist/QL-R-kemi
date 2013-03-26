@@ -10,12 +10,42 @@
 
 module lang::ql::\syntax::Comment
 
+extend lang::ql::\syntax::Expressions;
+
 lexical Comment 
-  = @category="Comment" "/*" CommentChar* "*/"
+  = MultLine
   | @category="Comment" "//" ![\n]* $
   ;
 
-lexical CommentChar
-  = ![*]
-  | [*] !>> [/]
+
+lexical MultLine
+  = @category="Comment" "/*" CommentChar* "*/"
+  | StartComment Expr TailComment
   ;
+  
+lexical TailComment
+  = MidComment TailComment
+  | EndComment
+  ;
+  
+lexical StartComment
+  = @category="Comment" "/*" CommentChar* [\<]
+  ;
+
+lexical EndComment
+  = @category="Comment" [\>] CommentChar* "*/"
+  ;
+
+lexical MidComment
+  = @category="Comment" [\>] CommentChar* [\<]
+  ;
+
+
+lexical CommentChar
+  = ![\<\>*]
+  | [*] !>> [/]
+  | [\\][\<\>]
+  ;
+  
+  
+

@@ -6,6 +6,7 @@ form taxOfficeExample {
   "Did you enter a loan for maintenance/reconstruction?"
     boolean hasMaintLoan
   if(hasSoldHouse) { 
+    /* depends on  <hasSoldHouse < 3434> */
     "What was the selling price of the house?"
       money sellingPrice
     "Private debts for the sold house:"
