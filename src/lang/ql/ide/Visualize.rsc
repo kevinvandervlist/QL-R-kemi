@@ -11,65 +11,57 @@ module lang::ql::ide::Visualize
 import vis::Figure;
 
 import lang::ql::ast::AST;
+import lang::ql::analysis::CFlow;
 import lang::ql::compiler::PrettyPrinter;
 import ParseTree;
 import List;
 import util::Editors;
 import vis::KeySym;
 
-Figure form2figure(Form f) {
-  ns = [];
-  es = [];
 
-  str idOf(Conditional c) = "id_<(c.body[0]@location).offset>";
-  str idOf(Statement s) = "id_<(s@location).offset>";
+str idOf(CF::split(i)) = "<i>";
+str idOf(stat(i, _)) = "<i>";
+str idOf(entry()) = "entry";
+str idOf(exit()) = "exit";
+str idOf(dummy(i)) = "dummy_<id>";
 
-  FProperty onClick(Statement q, QuestionText txt) =
+private FProperty FONT = font("Monospaced");
+private FProperty FONT_SIZE = fontSize(10);
+private FProperty TO_ARROW = toArrow(triangle(5));
+
+FProperty onClick(Question q, QuestionText txt) =
     onMouseDown(bool (int butnr, map[KeyModifier,bool] modifiers) {
           edit(q@location, [highlight(q@location.begin.line, unquote(txt.text))]);
-		  return true;
-	    });
+          return true;
+        });
 
-  top-down visit (f) {
-    case form(_, ss): {
-      if (ss != []) {
-        cur = idOf(ss[0]);
-        for (s <- ss[1..]) {
-          es += [edge(cur, idOf(s))];
-          cur = idOf(s);
-        }
-      }
-    }
-    case q:question(question(txt, at, n)): 
-       ns += [box(text("<n.ident>: <at.name>"), onClick(q, txt),
-        id(idOf(q)), resizable(false))];
 
-    case q:question(question(txt, at, n, e)):
-       ns += [ellipse(text("<n.ident> =\n <prettyPrint(e)>", fontSize(10), font("Monospaced")), onClick(q, txt),
-                id(idOf(q)), resizable(false))];
+list[Figure] getNodes(DecisionGraph g) {
+  ns = g<0> + g<2>;
+  fns = [ ellipse(id(idOf(s)), resizable(false), width(4), height(4)) | s:split(int i) <- ns ];
+  fns += [ box(text("<x.ident>: <at.name>", FONT, FONT_SIZE), id(idOf(s)), resizable(false), gap(5), onClick(q, txt)) 
+           | s:stat(int i, q:question(txt, Type at, x)) <- ns ];
+  fns += [ ellipse(text("<x.ident> =\n<prettyPrint(e)>", FONT, FONT_SIZE), id(idOf(s)), resizable(false), onClick(q, txt)) 
+           | s:stat(int i, q:question(txt, _, x, e)) <- ns ];
+  fns += [ ellipse(id(idOf(s)), resizable(false), width(10), height(10), fillColor("red")) | s <- ns, (s is entry || s is exit)];
+  fns += [ ellipse(id(idOf(s))) | s:dummy(_) <- ns ];
+  return fns;
+}
 
-    case q:ifCondition(c, eifs, ep): {
-       x = idOf(q);
-       ns += [ellipse(id(x))];
-       for (b <- [c, *eifs]) {
-         es += [edge(x, idOf(b), label(text(prettyPrint(b.condition), fontSize(10), font("Monospaced"))))];
-         cur = idOf(b);
-         for (size(b.body) > 1, s <- b.body[1..]) {
-           es += [edge(cur, idOf(s))];
-           cur = idOf(s);
-         }
-       }
-       if (ep != [] && ep[0].body != []) {
-         ess = ep[0].body;
-         es += [edge(x, idOf(ess[0]), label(text("otherwise", fontSize(10), fontColor("blue"), font("Monospaced"))))];
-         cur = idOf(ess[0]);
-         for (size(ess) > 1, s <- ess[1..]) {
-           es += [edge(cur, idOf(s))];
-           cur = idOf(s);
-         }
-       }
-     }
-  } 
+Edges getEdges(DecisionGraph g) {
+  es = [];
+  es += [ edge(idOf(a), idOf(b), TO_ARROW) | <a, none(), b> <- g ];
+  es += [ edge(idOf(a), idOf(b), label(text(prettyPrint(e), FONT, FONT_SIZE)), TO_ARROW)
+          | <a, cond(e), b> <- g ];
+  es += [ edge(idOf(a), idOf(b), label(text("otherwise", FONT, FONT_SIZE)), TO_ARROW)
+          | <a, \else(), b> <- g ];
+  return es;
+}
+
+Figure form2figure(Form f) {
+  cfg = cflow(f);
+  ns = getNodes(cfg.graph);
+  es = getEdges(cfg.graph);
   return graph(ns, es, gap(50.0,50.0), hint("layered"), orientation(topDown()));
 }
 
