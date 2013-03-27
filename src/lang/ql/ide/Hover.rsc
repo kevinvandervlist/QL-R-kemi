@@ -11,7 +11,7 @@ Tree addDocLinks(Tree t) = addDocLinks(t, questions(t));
 Tree addDocLinks(Tree f, map[str,Question] qs) {
   return visit (f) {
     case Expr e => e[name=e.name[@doc=prettyPrint(implodeQuestion(qs["<e>"]))]]
-      when e is ident, "<e>" in qs, bprintln("DOC for <e>") 
+      when e is ident, "<e>" in qs 
   }
 }
 

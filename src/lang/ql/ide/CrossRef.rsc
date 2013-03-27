@@ -10,8 +10,6 @@ module lang::ql::ide::CrossRef
 
 import lang::ql::\syntax::QL;
 import ParseTree;
-import IO;
-
 
 Tree xref(Tree t) = xref(t, definitions(t));
 
