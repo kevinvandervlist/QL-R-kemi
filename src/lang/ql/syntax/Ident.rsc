@@ -1,8 +1,6 @@
 module lang::ql::\syntax::Ident
 
-//extend lang::ql::\syntax::Keyword;
-
-syntax Ident
+lexical Ident
   = @category="Variable" IdentLexical \ Keywords
   | @category="Variable" ("\\" IdentLexical)
   ;

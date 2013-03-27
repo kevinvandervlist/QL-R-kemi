@@ -27,6 +27,7 @@ import lang::ql::ide::Outline;
 import lang::ql::\syntax::QL;
 import lang::ql::util::ParseHelper;
 import lang::ql::ide::CrossRef;
+import lang::ql::ide::Hover;
 import lang::ql::ide::Visualize;
 import vis::Render;
 
@@ -75,7 +76,7 @@ public void setupQL() {
     
     annotator(Tree(Tree input) {
       ast = implode(input);
-      input = xref(input);
+      input = addDocLinks(xref(input));
       SAS sas = <(), ()>;
       <sas, msgs> = analyzeSemantics(sas, ast);
       msgs += filenameDoesNotMatchErrors(ast);

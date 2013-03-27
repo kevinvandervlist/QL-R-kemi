@@ -17,7 +17,7 @@ import ParseTree;
 import List;
 import util::Editors;
 import vis::KeySym;
-
+import IO;
 
 str idOf(CF::split(i)) = "<i>";
 str idOf(stat(i, _)) = "<i>";
@@ -52,7 +52,7 @@ Edges getEdges(DecisionGraph g) {
   es = [];
   es += [ edge(idOf(a), idOf(b), TO_ARROW) | <a, none(), b> <- g ];
   es += [ edge(idOf(a), idOf(b), label(text(prettyPrint(e), FONT, FONT_SIZE)), TO_ARROW)
-          | <a, cond(e), b> <- g ];
+          | <a, cond(e), b> <- g, bprintln("label = <prettyPrint(e)>") ];
   es += [ edge(idOf(a), idOf(b), label(text("otherwise", FONT, FONT_SIZE)), TO_ARROW)
           | <a, \else(), b> <- g ];
   return es;

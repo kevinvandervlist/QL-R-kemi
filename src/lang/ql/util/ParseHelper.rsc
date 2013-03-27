@@ -23,6 +23,10 @@ public Form implode(Tree t) =
 public Expr implodeExpr(Tree t) = 
   implode(#Expr, t);
 
+public Question implodeQuestion(Tree t) = 
+  implode(#Question, t);
+
+
 public start[Form] parse(str src, loc l) = 
   parse(#start[Form], src, l);
 
