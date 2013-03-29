@@ -1,9 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: QL_R
-Bundle-SymbolicName: QL_R;singleton=true
-Bundle-Version: 1.0.0
+Bundle-SymbolicName: QL_R
 Require-Bundle: org.eclipse.imp.pdb.values,
- rascal,
- rascal_eclipse;bundle-version="0.6.0"
+  rascal
+Bundle-Version: 1.0.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

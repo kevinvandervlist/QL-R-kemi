@@ -1,0 +1,17 @@
+.keyword {
+    font-weight: bold;
+    color: rgb(123, 0, 82);
+}
+
+.comment {
+    font-style: italic;
+    color: rgb(63, 127, 95);
+}
+
+.string {
+    color: rgb(42, 0, 255);
+}
+
+
+
+

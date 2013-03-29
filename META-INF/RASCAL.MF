@@ -1,3 +1,0 @@
-Source: src
-Main-Module: Plugin
-Main-Function: main
