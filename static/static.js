@@ -127,13 +127,14 @@ function addQuestion(ident, parentIdent) {
 }
 
 function addText(ident) {
+  oldType = $("#" + ident)[0].type 
   $("#" + ident)
     .replaceWith(
       $("<input />")
         .attr({
           id: ident,
           name: ident,
-          type: "text",
+          type: oldType,
           disabled: $("#" + ident).is(":disabled")
         })
     );
