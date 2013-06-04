@@ -49,6 +49,6 @@ public Form parseForm(loc f) =
   implode(#lang::ql::\ast::AST::Form, parse(#start[Form], f));
 
   
-public Tree justParseForm(loc f) = 
+public start[Form] justParseForm(loc f) = 
   parse(#start[Form], f);
   

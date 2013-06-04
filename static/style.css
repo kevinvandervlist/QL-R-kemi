@@ -6,7 +6,7 @@
 }
 
 label {
-  display: inline !important;
+  display: inline;
 }
 
 label:first-child {
