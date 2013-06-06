@@ -34,14 +34,11 @@ private DoNotNest prios =
 private &T parens(node parent, node kid, &T x,  &T(&T x) parenizer) = 
   parens(prios, parent, kid, x, parenizer);
   
-public Expr parenizeExpr(p:pos(val)) = 
-  pos(parenizeExpr(p, val));
+public Expr parenizeExpr(p:pos(val)) = pos(parenizeExpr(p, val));
   
-public Expr parenizeExpr(p:neg(val)) = 
-  neg(parenizeExpr(p, val));
+public Expr parenizeExpr(p:neg(val)) = neg(parenizeExpr(p, val));
 
-public Expr parenizeExpr(p:not(val)) = 
-  not(parenizeExpr(p, val));
+public Expr parenizeExpr(p:not(val)) = not(parenizeExpr(p, val));
 
 public Expr parenizeExpr(p:mul(lhs, rhs)) = 
   mul(parenizeExpr(p, lhs), parenizeExpr(p, rhs));

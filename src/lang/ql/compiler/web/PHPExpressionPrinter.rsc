@@ -15,65 +15,48 @@ import lang::ql::\ast::AST;
 
 // Note: Because this is generated code, we add parentheses anyway. 
 // It is not worthwile to minimize those as we do in the normal prettyprinter.
-public str phpPrint(pos(Expr posValue)) = 
-  "(+<phpPrint(posValue)>)";
+str phpPrint(pos(Expr posValue)) = "(+<phpPrint(posValue)>)";
 
-public str phpPrint(neg(Expr negValue)) =
-  "(-<phpPrint(negValue)>)";
+str phpPrint(neg(Expr negValue)) = "(-<phpPrint(negValue)>)";
 
-public str phpPrint(not(Expr notValue)) =
-  "(!<phpPrint(notValue)>)";
+str phpPrint(not(Expr notValue)) = "(!<phpPrint(notValue)>)";
 
-public str phpPrint(mul(multiplicand, multiplier)) =
+str phpPrint(mul(multiplicand, multiplier)) =
   "(<phpPrint(multiplicand)> * <phpPrint(multiplier)>)";
 
-public str phpPrint(div(numerator, denominator)) =
+str phpPrint(div(numerator, denominator)) =
   "(<phpPrint(numerator)> / <phpPrint(denominator)>)";
 
-public str phpPrint(add(leftAddend, rightAddend)) =
+str phpPrint(add(leftAddend, rightAddend)) =
   "(<phpPrint(leftAddend)> + <phpPrint(rightAddend)>)";
 
-public str phpPrint(sub(minuend, subtrahend)) =
+str phpPrint(sub(minuend, subtrahend)) =
   "(<phpPrint(minuend)> - <phpPrint(subtrahend)>)";
 
-public str phpPrint(lt(left, right)) =
-  "(<phpPrint(left)> \< <phpPrint(right)>)";
+str phpPrint(lt(left, right)) = "(<phpPrint(left)> \< <phpPrint(right)>)";
 
-public str phpPrint(leq(left, right)) =
-  "(<phpPrint(left)> \<= <phpPrint(right)>)";
+str phpPrint(leq(left, right)) = "(<phpPrint(left)> \<= <phpPrint(right)>)";
 
-public str phpPrint(gt(left, right)) =
-  "(<phpPrint(left)> \> <phpPrint(right)>)";
+str phpPrint(gt(left, right)) = "(<phpPrint(left)> \> <phpPrint(right)>)";
 
-public str phpPrint(geq(left, right)) =
-  "(<phpPrint(left)> \>= <phpPrint(right)>)";
+str phpPrint(geq(left, right)) = "(<phpPrint(left)> \>= <phpPrint(right)>)";
 
-public str phpPrint(equ(left, right)) =
-  "(<phpPrint(left)> == <phpPrint(right)>)";
+str phpPrint(equ(left, right)) = "(<phpPrint(left)> == <phpPrint(right)>)";
 
-public str phpPrint(neq(left, right)) =
-  "(<phpPrint(left)> != <phpPrint(right)>)";
+str phpPrint(neq(left, right)) = "(<phpPrint(left)> != <phpPrint(right)>)";
 
-public str phpPrint(and(left, right)) =
-  "(<phpPrint(left)> && <phpPrint(right)>)";
+str phpPrint(and(left, right)) = "(<phpPrint(left)> && <phpPrint(right)>)";
 
-public str phpPrint(or(left, right)) =
-  "(<phpPrint(left)> || <phpPrint(right)>)";
+str phpPrint(or(left, right)) = "(<phpPrint(left)> || <phpPrint(right)>)";
 
-public str phpPrint(ident(name)) =
-  "<name>";
+str phpPrint(ident(name)) = "<name>";
 
-public str phpPrint(\int(intValue)) =
-  "<intValue>";
+str phpPrint(\int(intValue)) = "<intValue>";
 
-public str phpPrint(money(moneyValue)) =
-  "<moneyValue>";
+str phpPrint(money(moneyValue)) = "<moneyValue>";
 
-public str phpPrint(boolean(booleanValue)) =
-  "<booleanValue>";
+str phpPrint(boolean(booleanValue)) = "<booleanValue>";
 
-public str phpPrint(date(dateValue)) =
-  "\"<substring(dateValue, 1)>\"";
+str phpPrint(date(dateValue)) = "\"<substring(dateValue, 1)>\"";
 
-public str phpPrint(string(text)) =
-  "<text>";
+str phpPrint(string(text)) = "<text>";

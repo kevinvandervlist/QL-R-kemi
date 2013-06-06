@@ -31,18 +31,13 @@ syntax Statement
   | ifCondition: IfPart ifPart ElsIfPart* elseIfs ElsePart? elsePart
   ;
 
-syntax Conditional 
-  = conditional: Expr condition "{" Statement+ body "}"
-  ;
+syntax Conditional = conditional: Expr condition "{" Statement+ body "}" ;
 
-syntax IfPart = 
-  @Foldable "if" Conditional ifPart;
+syntax IfPart =  @Foldable "if" Conditional ifPart;
 
-syntax ElsIfPart = 
-  @Foldable "else" "if" Conditional elsePart;
+syntax ElsIfPart = @Foldable "else" "if" Conditional elsePart;
 
-syntax ElsePart = 
-  @Foldable elsePart: "else" "{" Statement+ body "}";
+syntax ElsePart = @Foldable elsePart: "else" "{" Statement+ body "}";
 
 // What the ...?! Colons don't work, but equals signs do...
 start syntax Question 
@@ -50,10 +45,6 @@ start syntax Question
   | question: QuestionText questionText Type answerDataType IdentDefinition answerIdentifier "=" Expr calculatedField
   ;
 
-lexical IdentDefinition
-  = identDefinition: Ident ident
-  ;
+lexical IdentDefinition = identDefinition: Ident ident;
 
-lexical QuestionText
-  = @category="Identifier" questionText: String questionText
-  ;
+lexical QuestionText = @category="Identifier" questionText: String questionText ;

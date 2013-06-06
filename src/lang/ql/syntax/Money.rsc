@@ -10,8 +10,7 @@
 
 module lang::ql::\syntax::Money
 
-syntax Money = 
-  @category="Constant" LMoney;
+syntax Money = @category="Constant" LMoney;
 
 lexical LMoney
   = [0-9]+ "."

@@ -23,27 +23,18 @@ syntax SingleLine
   ;
   
   
-lexical OnlySingle
-  = @category="Comment" "//" SingleChar* $
-  ;
+lexical OnlySingle = @category="Comment" "//" SingleChar* $ ;
 
-lexical StartSingle
-  = @category="Comment" "//" SingleChar* [\<]
-  ;
+lexical StartSingle = @category="Comment" "//" SingleChar* [\<] ;
   
 syntax TailSingle
   = Expr expr MidSingle TailSingle
   | Expr expr EndSingle
   ;
   
-lexical MidSingle
-  = @category="Comment" [\>] SingleChar* [\<]
-  ;
+lexical MidSingle = @category="Comment" [\>] SingleChar* [\<] ;
   
-lexical EndSingle
-  = @category="Comment" [\>] SingleChar* $
-  ;
-
+lexical EndSingle = @category="Comment" [\>] SingleChar* $ ;
 
 lexical SingleChar
  = ![\n\<\>]
@@ -61,23 +52,13 @@ syntax TailComment
   | Expr expr EndComment
   ;
 
-lexical OnlyComment
-  = @category="Comment" "/*" CommentChar* "*/"
-  ;
+lexical OnlyComment = @category="Comment" "/*" CommentChar* "*/" ;
 
-  
-lexical StartComment
-  = @category="Comment" "/*" CommentChar* [\<]
-  ;
+lexical StartComment = @category="Comment" "/*" CommentChar* [\<] ;
 
-lexical EndComment
-  = @category="Comment" [\>] CommentChar* "*/"
-  ;
+lexical EndComment = @category="Comment" [\>] CommentChar* "*/" ;
 
-lexical MidComment
-  = @category="Comment" [\>] CommentChar* [\<]
-  ;
-
+lexical MidComment = @category="Comment" [\>] CommentChar* [\<] ;
 
 lexical CommentChar
   = ![\<\>*]

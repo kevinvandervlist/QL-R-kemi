@@ -22,14 +22,11 @@ import lang::qls::\syntax::Keyword;
 import lang::qls::\syntax::QLS;
 import \ParseTree;
 
-public start[Stylesheet] parse(str src, loc l) = 
-  parse(#start[Stylesheet], src, l);
+start[Stylesheet] parse(str src, loc l) = parse(#start[Stylesheet], src, l);
 
-public Stylesheet implode(Tree t) =
-  implode(#lang::qls::\ast::AST::Stylesheet, t);
+Stylesheet implode(Tree t) = implode(#lang::qls::\ast::AST::Stylesheet, t);
 
-public Stylesheet parseStylesheet(str src) =
+Stylesheet parseStylesheet(str src) = 
   implode(parse(#start[Stylesheet], src, |file:///-|));
 
-public Stylesheet parseStylesheet(loc f) =
-  implode(parse(#start[Stylesheet], f));
+Stylesheet parseStylesheet(loc f) = implode(parse(#start[Stylesheet], f));
