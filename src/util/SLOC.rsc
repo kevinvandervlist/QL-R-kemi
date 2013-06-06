@@ -26,10 +26,16 @@ bool excludePath(/^\/src\/lang\/ql\/tests/) = true;
 bool excludePath(/^\/src\/lang\/qls\/tests/) = true;
 bool excludePath(/^\/src\/lang\/ql\/format/) = true;
 bool excludePath("/src/util/SLOC.rsc") = true;
+bool excludePath("/src/util/Random.rsc") = true;
+bool excludePath("/src/util/Priorities.rsc") = true;
 bool excludePath("/src/lang/ql/ide/Visualize.rsc") = true;
+bool excludePath("/src/lang/ql/util/Random.rsc") = true;
+bool excludePath("/src/lang/ql/util/ParenthesizeExpression.rsc") = true;
+bool excludePath("/src/lang/ql/util/FormGenerator.rsc") = true;
 bool excludePath("/src/lang/ql/analysis/CFlow.rsc") = true;
 bool excludePath("/src/lang/ql/analysis/CommentCheck.rsc") = true;
 bool excludePath("/src/lang/ql/compiler/PrettyPrinter.rsc") = true;
+bool excludePath("/src/lang/qls/compiler/PrettyPrinter.rsc") = true;
 default bool excludePath(str _) = false;
 
 alias Stats = tuple[int total, map[loc file, int sloc] dist];
