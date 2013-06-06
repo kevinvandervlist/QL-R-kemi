@@ -20,8 +20,7 @@ extend lang::qls::\syntax::Color;
 extend lang::qls::\syntax::Keyword;
 
 start syntax Stylesheet
-  = stylesheet: "stylesheet" Ident "{" Definition* definitions "}"
-  ;
+  = stylesheet: "stylesheet" Ident "{" Definition* definitions "}";
 
 syntax Definition
   = @Foldable PageDefinition
@@ -30,13 +29,10 @@ syntax Definition
   | @Foldable DefaultDefinition
   ;
 
-syntax PageDefinition
-  = pageDefinition: "page" String "{" LayoutRule* "}"
-  ;
+syntax PageDefinition = pageDefinition: "page" String "{" LayoutRule* "}";
 
-syntax SectionDefinition
-  = sectionDefinition: "section" String "{" LayoutRule* "}"
-  ;
+syntax SectionDefinition 
+  = sectionDefinition: "section" String "{" LayoutRule* "}";
 
 syntax LayoutRule
   = @Foldable layoutRule: SectionDefinition
@@ -49,9 +45,7 @@ syntax QuestionDefinition
   | questionDefinition: "question" Ident "{" StyleRule* "}"
   ;
 
-syntax DefaultDefinition
-  = defaultDefinition: "default" Type "{" StyleRule* "}"
-  ;
+syntax DefaultDefinition = defaultDefinition: "default" Type "{" StyleRule* "}";
 
 syntax StyleRule
   = widgetStyleRule: WidgetStyleAttr WidgetStyleValue
@@ -79,37 +73,21 @@ lexical Number
   | Money
   ;
 
-lexical TextWidgetValue
-  = "text"
-  ;
+lexical TextWidgetValue = "text";
 
-lexical NumberWidgetValue
-  = "number"
-  ;
+lexical NumberWidgetValue = "number";
 
-lexical DatepickerWidgetValue
-  = "datepicker"
-  ;
+lexical DatepickerWidgetValue = "datepicker";
 
-lexical SliderWidgetValue
-  = "slider"
-  ;
+lexical SliderWidgetValue = "slider";
 
-lexical RadioWidgetValue
-  = "radio"
-  ;
+lexical RadioWidgetValue = "radio";
 
-lexical CheckboxWidgetValue
-  = "checkbox"
-  ;
+lexical CheckboxWidgetValue = "checkbox";
 
-lexical SelectWidgetValue
-  = "select"
-  ;
+lexical SelectWidgetValue = "select";
 
-lexical WidgetStyleAttr
-  = @category="Identifier" widget: "widget"
-  ;
+lexical WidgetStyleAttr = @category="Identifier" widget: "widget";
 
 lexical IntStyleAttr
   = @category="Identifier" width: "width"
@@ -133,5 +111,4 @@ syntax Ident
   ;
 
 lexical IdentLexical
-  = [a-z A-Z 0-9 _] !<< [a-z A-Z][a-z A-Z 0-9 _]* !>> [a-z A-Z 0-9 _]
-   ;
+  = [a-z A-Z 0-9 _] !<< [a-z A-Z][a-z A-Z 0-9 _]* !>> [a-z A-Z 0-9 _];

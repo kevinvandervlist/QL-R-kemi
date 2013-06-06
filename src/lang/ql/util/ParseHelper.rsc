@@ -17,38 +17,33 @@ import lang::ql::\ast::AST;
 
 import lang::ql::\syntax::QL;
 
-public Form implode(Tree t) = 
-  implode(#Form, t);
+Form implode(Tree t) = implode(#Form, t);
 
-public Expr implodeExpr(Tree t) = 
-  implode(#Expr, t);
+Expr implodeExpr(Tree t) = implode(#Expr, t);
 
-public Question implodeQuestion(Tree t) = 
-  implode(#Question, t);
+Question implodeQuestion(Tree t) = implode(#Question, t);
 
 
-public start[Form] parse(str src, loc l) = 
-  parse(#start[Form], src, l);
+start[Form] parse(str src, loc l) = parse(#start[Form], src, l);
 
-public Expr parseExpr(str src) = 
+Expr parseExpr(str src) = 
   implode(#lang::ql::\ast::AST::Expr, parse(#lang::ql::\syntax::QL::Expr, src, 
     |file:///-|));
 
-public Tree justParseExpr(str src) = 
+Tree justParseExpr(str src) = 
   parse(#lang::ql::\syntax::QL::Expr, src, |file:///-|);
 
 
-public Question parseQuestion(str src) = 
+Question parseQuestion(str src) = 
   implode(#lang::ql::\ast::AST::Question, parse(#lang::ql::\syntax::QL::Question, 
     src, |file:///-|));
   
-public Form parseForm(str src) = 
+Form parseForm(str src) = 
   implode(#lang::ql::\ast::AST::Form, parse(#start[Form], src, |file:///-|));
   
-public Form parseForm(loc f) = 
+Form parseForm(loc f) = 
   implode(#lang::ql::\ast::AST::Form, parse(#start[Form], f));
 
   
-public start[Form] justParseForm(loc f) = 
-  parse(#start[Form], f);
+start[Form] justParseForm(loc f) = parse(#start[Form], f);
   

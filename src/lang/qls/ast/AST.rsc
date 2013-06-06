@@ -26,9 +26,7 @@ data LayoutRule
   = layoutRule(Definition definition)
   ;
 
-data Ident
-  = ident(str name)
-  ;
+data Ident = ident(str name);
 
 data Type
   = booleanType(str name)

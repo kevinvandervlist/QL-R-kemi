@@ -12,5 +12,4 @@ module util::LocationHelper
 
 import String;
 
-public str basename(loc l) =
-  replaceLast(l.file, ".<l.extension>", "");
+public str basename(loc l) = replaceLast(l.file, ".<l.extension>", "");

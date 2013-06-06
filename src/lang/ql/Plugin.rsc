@@ -35,8 +35,7 @@ private str actionBuild = "Build form";
 private str actionFormat = "Format (removes comments)";
 private str actionVisualize = "Visualize form";
 
-private void format(Form f, loc l) =
-  writeFile(l, prettyPrint(f));
+private void format(Form f, loc l) = writeFile(l, prettyPrint(f));
   
 private void build(Form form, loc source) {
   messages = buildAndReturnMessages(form, getCompileTarget());

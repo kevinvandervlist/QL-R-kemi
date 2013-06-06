@@ -15,65 +15,48 @@ import lang::ql::\ast::AST;
 
 // Note: Because this is generated code, we add parentheses anyway. 
 // It is not worthwile to minimize those as we do in the normal prettyprinter.
-public str jsPrint(pos(Expr posValue)) = 
-  "(+<jsPrint(posValue)>)";
+str jsPrint(pos(Expr posValue)) = "(+<jsPrint(posValue)>)";
 
-public str jsPrint(neg(Expr negValue)) =
-  "(-<jsPrint(negValue)>)";
+str jsPrint(neg(Expr negValue)) = "(-<jsPrint(negValue)>)";
 
-public str jsPrint(not(Expr notValue)) =
-  "(!<jsPrint(notValue)>)";
+str jsPrint(not(Expr notValue)) = "(!<jsPrint(notValue)>)";
 
-public str jsPrint(mul(multiplicand, multiplier)) =
+str jsPrint(mul(multiplicand, multiplier)) =
   "(<jsPrint(multiplicand)> * <jsPrint(multiplier)>)";
 
-public str jsPrint(div(numerator, denominator)) =
+str jsPrint(div(numerator, denominator)) =
   "(<jsPrint(numerator)> / <jsPrint(denominator)>)";
 
-public str jsPrint(add(leftAddend, rightAddend)) =
+str jsPrint(add(leftAddend, rightAddend)) =
   "(<jsPrint(leftAddend)> + <jsPrint(rightAddend)>)";
 
-public str jsPrint(sub(minuend, subtrahend)) =
+str jsPrint(sub(minuend, subtrahend)) =
   "(<jsPrint(minuend)> - <jsPrint(subtrahend)>)";
 
-public str jsPrint(lt(left, right)) =
-  "(<jsPrint(left)> \< <jsPrint(right)>)";
+str jsPrint(lt(left, right)) = "(<jsPrint(left)> \< <jsPrint(right)>)";
 
-public str jsPrint(leq(left, right)) =
-  "(<jsPrint(left)> \<= <jsPrint(right)>)";
+str jsPrint(leq(left, right)) = "(<jsPrint(left)> \<= <jsPrint(right)>)";
 
-public str jsPrint(gt(left, right)) =
-  "(<jsPrint(left)> \> <jsPrint(right)>)";
+str jsPrint(gt(left, right)) = "(<jsPrint(left)> \> <jsPrint(right)>)";
 
-public str jsPrint(geq(left, right)) =
-  "(<jsPrint(left)> \>= <jsPrint(right)>)";
+str jsPrint(geq(left, right)) = "(<jsPrint(left)> \>= <jsPrint(right)>)";
 
-public str jsPrint(equ(left, right)) =
-  "(<jsPrint(left)> == <jsPrint(right)>)";
+str jsPrint(equ(left, right)) = "(<jsPrint(left)> == <jsPrint(right)>)";
 
-public str jsPrint(neq(left, right)) =
-  "(<jsPrint(left)> != <jsPrint(right)>)";
+str jsPrint(neq(left, right)) = "(<jsPrint(left)> != <jsPrint(right)>)";
 
-public str jsPrint(and(left, right)) =
-  "(<jsPrint(left)> && <jsPrint(right)>)";
+str jsPrint(and(left, right)) = "(<jsPrint(left)> && <jsPrint(right)>)";
 
-public str jsPrint(or(left, right)) =
-  "(<jsPrint(left)> || <jsPrint(right)>)";
+str jsPrint(or(left, right)) = "(<jsPrint(left)> || <jsPrint(right)>)";
 
-public str jsPrint(ident(name)) =
-  "<name>";
+str jsPrint(ident(name)) = "<name>";
 
-public str jsPrint(\int(intValue)) =
-  "<intValue>";
+str jsPrint(\int(intValue)) = "<intValue>";
 
-public str jsPrint(money(moneyValue)) =
-  "<moneyValue>";
+str jsPrint(money(moneyValue)) = "<moneyValue>";
 
-public str jsPrint(boolean(booleanValue)) =
-  "<booleanValue>";
+str jsPrint(boolean(booleanValue)) = "<booleanValue>";
 
-public str jsPrint(date(dateValue)) =
-  "\"<substring(dateValue, 1)>\"";
+str jsPrint(date(dateValue)) = "\"<substring(dateValue, 1)>\"";
 
-public str jsPrint(string(text)) =
-  "<text>";
+str jsPrint(string(text)) = "<text>";

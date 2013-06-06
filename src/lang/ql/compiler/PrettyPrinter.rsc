@@ -102,27 +102,18 @@ str prettyPrintParen(p:and(left, right)) =
 str prettyPrintParen(p:or(left, right)) =
   printExpression(p, "<prettyPrintParen(left)> || <prettyPrintParen(right)>");
 
-str prettyPrintParen(ident(str name)) =
-  "<ppID(name)>";
+str prettyPrintParen(ident(str name)) = "<ppID(name)>";
 
-str prettyPrintParen(\int(int intValue)) =
-  "<intValue>";
+str prettyPrintParen(\int(int intValue)) = "<intValue>";
 
-str prettyPrintParen(money(real moneyValue)) =
-  "<moneyValue>";
+str prettyPrintParen(money(real moneyValue)) = "<moneyValue>";
 
-str prettyPrintParen(boolean(bool booleanValue)) =
-  "<booleanValue>";
+str prettyPrintParen(boolean(bool booleanValue)) = "<booleanValue>";
 
-str prettyPrintParen(date(str dateValue)) =
-  "<dateValue>";
+str prettyPrintParen(date(str dateValue)) = "<dateValue>";
 
-str prettyPrintParen(string(str text)) =
-  "<text>";
+str prettyPrintParen(string(str text)) = "<text>";
 
-default str ppID(str ident) =
-  ident;
+default str ppID(str ident) = ident;
 
-str ppID(str ident) =
-  "\\<ident>"
-    when ident in keywords;
+str ppID(str ident) = "\\<ident>" when ident in keywords;
