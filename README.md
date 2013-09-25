@@ -1,7 +1,7 @@
 sc-ql-2012-2013-rascal
 ======================
 
-* Jimi van der Woning ([@JimbowsNET](https://github.com/JimbowsNET))
+* Jimi van der Woning ([@jimivdw](https://github.com/jimivdw))
 * Kevin van der Vlist ([@kevinvandervlist](https://github.com/kevinvandervlist))
 
 # About
