@@ -20,4 +20,5 @@ keyword Keywords
   | radio: "radio"
   | checkbox: "checkbox"
   | select: "select"
+  | textarea: "textarea"
   ;

@@ -131,6 +131,10 @@ private str styleJS(str ident, StyleRule r:
   // Select is the default type, no need for replacement
   "";
 
+private str styleJS(str ident, StyleRule r: 
+    widgetStyleRule(attr, textarea(name))) =
+  "addTextarea(\"<ident>\");";
+
 private str getUniqueID(Stylesheet s) =
   s.ident.name;
 

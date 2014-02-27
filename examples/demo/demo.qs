@@ -40,6 +40,10 @@ stylesheet demo {
       question averageRemark
       question highRemark
       question hoursAWeek
+
+      default string {
+        widget textarea
+      }
     }
     
   }

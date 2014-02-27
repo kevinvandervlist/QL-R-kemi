@@ -66,6 +66,7 @@ data WidgetStyleValue
   | radio(str name)
   | checkbox(str name)
   | select(str name)
+  | textarea(str name)
   ;
 
 anno loc Stylesheet@location;

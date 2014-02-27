@@ -163,6 +163,10 @@ function addCheckbox(ident) {
   $("#" + ident).rules("remove");
 }
 
+function addTextarea(ident) {
+  $("#" + ident).replaceWith($("<textarea />").attr({id: ident, name: ident, 
+    disabled: $("#" + ident).is(":disabled")}));
+}
 
 function button(text) {
   return $("<button />").text(text || id);

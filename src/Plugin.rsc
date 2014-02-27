@@ -17,4 +17,3 @@ public void main() {
   setupQL();
   setupQLS();
 }
-

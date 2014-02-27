@@ -29,7 +29,7 @@ private map[Type, list[str]] allowedWidgets = (
   dateType("date"):
     ["text", "datepicker"],
   stringType("string"):
-    ["text"]
+    ["text", "textarea"]
 );
 
 private bool isAllowedWidget(Type \type, str widget) =

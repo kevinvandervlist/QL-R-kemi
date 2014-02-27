@@ -66,6 +66,7 @@ syntax WidgetStyleValue
   | radio: RadioWidgetValue
   | checkbox: CheckboxWidgetValue
   | select: SelectWidgetValue
+  | textarea: TextareaWidgetValue
   ;
 
 lexical Number
@@ -86,6 +87,8 @@ lexical RadioWidgetValue = "radio";
 lexical CheckboxWidgetValue = "checkbox";
 
 lexical SelectWidgetValue = "select";
+
+lexical TextareaWidgetValue = "textarea";
 
 lexical WidgetStyleAttr = @category="Identifier" widget: "widget";
 
