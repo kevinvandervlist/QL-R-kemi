@@ -31,7 +31,7 @@ private str actionFormat = "Format (removes comments)";
 private set[Message] buildAndReturnMessages(start[Stylesheet] sheet, loc target) =
   buildAndReturnMessages(implode(sheet), target);
   
-private set[Message] buildAndReturnMessages(Stylesheet sheet, loc target) {
+private set[Message] buildAndReturnMessages(Stylesheet sheet) {
   messages = semanticChecker(sheet);
   
   errors = {m | m <- messages, error(_, _) := m};
@@ -42,27 +42,27 @@ private set[Message] buildAndReturnMessages(Stylesheet sheet, loc target) {
   
   form = getAccompanyingForm(sheet);
   
-  formMessages = buildAndReturnMessages(form, target);
+  formMessages = buildAndReturnMessages(form);
   formErrors = {m | m <- formMessages, error(_, _) := m};
   
   if(formErrors != {}) {
     return formMessages;
   }
   
-  buildSheet(sheet, target);
+  buildSheet(sheet, getCompileTarget(sheet@location));
   
   return {};
 }
 
-void build(Stylesheet sheet, loc source) {
-  messages = buildAndReturnMessages(sheet, getCompileTarget());
+void build(Stylesheet sheet) {
+  messages = buildAndReturnMessages(sheet);
   
   errors = {m | m <- messages, error(_, _) := m};
   
   if(errors != {}) {
     alert("The sheet cannot be built when it still contains errors.");
   } else {
-    alert("The sheet is built in <getCompileTarget()>.");
+    alert("The sheet is built in <getCompileTarget(sheet@location.top)>.");
   }
 }
 
@@ -86,16 +86,16 @@ public void setupQLS() {
     popup(
       menu(getQLSLangName(),[
         action(actionBuild, (Tree tree, loc source) {
-          build(implode(tree), source);
+          build(implode(tree));
         }),
         action(actionFormat, (Tree tree, loc source) {
-          format(implode(tree), source);
+          format(implode(tree));
         })
       ])
     ),
     
     builder(set[Message] (Tree input) {
-      messages = buildAndReturnMessages(implode(input), getCompileTarget());
+      messages = buildAndReturnMessages(implode(input));
       return messages;
     })
   };

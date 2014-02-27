@@ -37,20 +37,20 @@ private str actionVisualize = "Visualize form";
 
 private void format(Form f, loc l) = writeFile(l, prettyPrint(f));
   
-private void build(Form form, loc source) {
-  messages = buildAndReturnMessages(form, getCompileTarget());
+private void build(Form form) {
+  messages = buildAndReturnMessages(form);
   
   errors = {m | m <- messages, error(_, _) := m};
   
   if(errors != {}) {
     alert("The form cannot be built when it still contains errors.");
   } else {
-    alert("The form is built in <getCompileTarget()>.");
+    alert("The form is built in <getCompileTarget(form@location.top)>.");
   }
   return;
 }
   
-public set[Message] buildAndReturnMessages(Form form, loc target) {
+public set[Message] buildAndReturnMessages(Form form) {
   messages = semanticChecker(form);
   
   errors = {m | m <- messages, error(_, _) := m};
@@ -58,7 +58,7 @@ public set[Message] buildAndReturnMessages(Form form, loc target) {
   if(errors != {}) {
     return messages;
   }
-  buildForm(form, target);
+  buildForm(form, getCompileTarget(form@location));
   
   return {};
 }
@@ -86,10 +86,10 @@ public void setupQL() {
     popup(
       menu(getQLLangName(),[
         action(actionBuild, (Tree tree, loc source) {
-          build(implode(tree), source);
+          build(implode(tree));
         }),
         action(actionFormat, (Tree tree, loc source) {
-          format(implode(tree), source);
+          format(implode(tree));
         }),
         action(actionVisualize, (Tree tree, loc source) {
           render(form2figure(implode(tree)));
@@ -98,7 +98,7 @@ public void setupQL() {
     ), 
     
     builder(set[Message] (Tree input) {
-      messages = buildAndReturnMessages(implode(input), getCompileTarget());
+      messages = buildAndReturnMessages(implode(input));
       return messages;
     })
   };
