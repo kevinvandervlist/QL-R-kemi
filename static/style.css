@@ -13,8 +13,32 @@ label:first-child {
   display: block !important;
 }
 
-body {
-  width: 960px;
-  margin: 60px auto;
+input[type=radio] {
+  margin: 0;
 }
 
+input[type=radio] + label {
+  padding: 0 40px 0 10px;
+}
+
+.page > div {
+  padding: 20px;
+}
+
+.page > div:nth-of-type(odd) {
+  background-color: #DDD;
+}
+
+textarea {
+  width: 600px;
+  height: 100px;
+}
+
+#submit {
+  margin: 10px;
+}
+
+body {
+  width: 960px;
+  margin: 20px auto;
+}
