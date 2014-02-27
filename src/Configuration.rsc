@@ -2,8 +2,19 @@ module Configuration
 
 private loc projectName = |project://QL-R-kemi/|;
 
+public loc getProjectName(loc file) {
+  loc fp = file.top;
+  while(fp.parent != fp) {
+    fp = fp.parent;
+  }
+  return fp;
+}
+
 public loc getStaticSourceLoc() = 
   projectName + "static/";
+
+public loc getCompileTarget(loc file) = 
+  getProjectName(file) + "output/";
 
 public loc getCompileTarget() = 
   projectName + "output/";
