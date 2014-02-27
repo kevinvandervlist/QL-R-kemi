@@ -155,6 +155,16 @@ function addRadio(ident) {
     text("No")));
 }
 
+function addRangeRadio(ident, min, max) {
+  $rep = $("<span />");
+  for(var i = min; i <= max; i++) {
+    $rep.append($("<input />").attr({id: ident + i, name: ident, value: i,
+      type: "radio", disabled: $("#" + ident).is(":disabled")})).append(
+      $("<label />").attr({for: ident + i}).text(i));
+  }
+  $("#" + ident).replaceWith($rep);
+}
+
 function addCheckbox(ident) {
   $("#" + ident).replaceWith($("<span />").append($("<input />").attr(
     {id: ident, name: ident, value: "true", type: "checkbox", disabled: 
@@ -183,6 +193,7 @@ function nextButton() {
 function showPage(page) {
   $(".page").hide();
   $(page).show();
+  $(window).scrollTop(0);
 }
 
 function paginate() {

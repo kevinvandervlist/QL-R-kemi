@@ -135,6 +135,10 @@ private str styleJS(str ident, StyleRule r:
     widgetStyleRule(attr, textarea(name))) =
   "addTextarea(\"<ident>\");";
 
+private str styleJS(str ident, StyleRule r: 
+    widgetStyleRule(attr, rangeradio(name, min, max))) =
+  "addRangeRadio(\"<ident>\", <min>, <max>);";
+
 private str getUniqueID(Stylesheet s) =
   s.ident.name;
 

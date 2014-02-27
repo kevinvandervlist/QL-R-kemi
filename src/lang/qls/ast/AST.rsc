@@ -67,6 +67,7 @@ data WidgetStyleValue
   | checkbox(str name)
   | select(str name)
   | textarea(str name)
+  | rangeradio(str name, real min, real max)
   ;
 
 anno loc Stylesheet@location;

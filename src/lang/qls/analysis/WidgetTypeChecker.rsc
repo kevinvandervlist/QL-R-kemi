@@ -23,7 +23,7 @@ private map[Type, list[str]] allowedWidgets = (
   booleanType("boolean"):
     ["radio", "checkbox", "select"],
   integerType("integer"):
-    ["text", "number", "slider"],
+    ["text", "number", "slider", "rangeradio"],
   moneyType("money"):
     ["text", "number", "slider"],
   dateType("date"):

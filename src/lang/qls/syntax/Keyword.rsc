@@ -21,4 +21,5 @@ keyword Keywords
   | checkbox: "checkbox"
   | select: "select"
   | textarea: "textarea"
+  | rangeradio: "rangeradio"
   ;
