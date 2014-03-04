@@ -2,6 +2,7 @@ function show(e) {
   if(e.tagName !== undefined)
     e = $(e);
   e.show();
+  e.removeClass("hidden");
   e.find("*[touched=touched]").change();
   $("fieldset").trigger("check");
 }
@@ -10,6 +11,7 @@ function hide(e) {
   if(e.tagName !== undefined)
     e = $(e);
   e.hide();
+  e.addClass("hidden");
   $("fieldset").trigger("check");
 }
 
@@ -79,7 +81,7 @@ function numDecimals(value) {
     return 0;
 }
 
-// Each money field can only contain up to two decimals. 
+// Each money field can only contain up to two decimals.
 jQuery.validator.addMethod("moneyValidator", function(value, element, params) {
 	return this.optional(element) || numDecimals(value) <= 2; 
 	}, jQuery.format("The money field can only contain up to 2 decimals.")
@@ -95,8 +97,13 @@ function addSection(ident, name, parentIdent) {
   .text(name)).appendTo($("#" + parentIdent));
 }
 
+function addNote(note, parentIdent) {
+  $("<div />").attr({class: "note"}).append($("<p />").text(note))
+  .appendTo($("#" + parentIdent));
+}
+
 function addQuestion(ident, parentIdent) {
-  $("#" + ident).appendTo($("#" + parentIdent));
+  $("#" + ident).addClass("question").appendTo($("#" + parentIdent));
 }
 
 function addText(ident) {

@@ -16,6 +16,7 @@ import List;
 import Node;
 import ParseTree;
 import Set;
+import String;
 import util::IDE;
 
 // Helper function to create nodes with appropriate annotations and members.
@@ -37,6 +38,7 @@ public node outlineStylesheet(Stylesheet s) =
       outlinePages(getPageDefinitions(s), s@location),
       outlineSections(getSectionDefinitions(s), s@location),
       outlineQuestions(getQuestionDefinitions(s), s@location),
+      outlineNotes(getNoteDefinitions(s), s@location),
       outlineDefaults(getDefaultDefinitions(s), s@location),
       outlineStyleRules(getStyleRules(s), s@location)
     ]
@@ -64,6 +66,14 @@ private node outlineQuestions(list[Definition] questions, loc rootLoc) =
     "Questions (<size(questions)>)",
     getFirstLocOrDefault(questions, rootLoc),
     [outline(q) | q <- questions]
+  );
+
+private node outlineNotes(list[Definition] notes, loc rootLoc) =
+  createNode(
+    "Notes",
+    "Notes (<size(notes)>)",
+    getFirstLocOrDefault(notes, rootLoc),
+    [outline(n) | n <- notes]
   );
 
 private node outlineDefaults(list[Definition] defaults, loc rootLoc) =
@@ -122,6 +132,14 @@ private node outline(Definition d: questionDefinition(ident, rules)) =
   createNode(
     "QuestionDefinition",
     "question <ident.name>",
+    d@location,
+    []
+  );
+
+private node outline(Definition d: noteDefinition(note)) =
+  createNode(
+    "NoteDefinition",
+    "note <size(note) > 10 ? note[..10] + "..." : note>",
     d@location,
     []
   );

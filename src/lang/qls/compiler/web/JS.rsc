@@ -61,6 +61,9 @@ private str layoutJS(Definition d: sectionDefinition(ident, rules),
   '<}>
   '";
 
+private str layoutJS(Definition d: noteDefinition(note), str parentID) =
+  "addNote(\"<unquote(replaceAll(note, "\n", ""))>\", \"<parentID>\");";
+
 private str layoutJS(Definition d, str parentID) =
   "addQuestion(\"<blockIdent(d)>\", \"<parentID>\");"
     when d is questionDefinition;

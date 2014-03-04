@@ -19,6 +19,7 @@ data Definition
   | sectionDefinition(str name, list[LayoutRule] layoutRules)
   | questionDefinition(Ident ident)
   | questionDefinition(Ident ident, list[StyleRule] styleRules)
+  | noteDefinition(str note)
   | defaultDefinition(Type \type, list[StyleRule] styleRules)
   ;
 

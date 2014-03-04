@@ -25,8 +25,12 @@ input[type=radio] + label {
   padding: 20px;
 }
 
-.page > div:nth-of-type(odd) {
+.page > .question:not(.hidden):nth-of-type(odd) {
   background-color: #DDD;
+}
+
+.note p {
+  margin: 5px 0;
 }
 
 textarea {
@@ -34,7 +38,7 @@ textarea {
   height: 100px;
 }
 
-#submit {
+button, #submit {
   margin: 10px;
 }
 

@@ -26,6 +26,7 @@ syntax Definition
   = @Foldable PageDefinition
   | @Foldable SectionDefinition
   | @Foldable QuestionDefinition
+  | @Foldable NoteDefinition
   | @Foldable DefaultDefinition
   ;
 
@@ -37,6 +38,7 @@ syntax SectionDefinition
 syntax LayoutRule
   = @Foldable layoutRule: SectionDefinition
   | @Foldable layoutRule: QuestionDefinition
+  | @Foldable layoutRule: NoteDefinition
   | @Foldable layoutRule: DefaultDefinition
   ;
 
@@ -44,6 +46,8 @@ syntax QuestionDefinition
   = questionDefinition: "question" Ident
   | questionDefinition: "question" Ident "{" StyleRule* "}"
   ;
+
+syntax NoteDefinition = noteDefinition: "note" String;
 
 syntax DefaultDefinition = defaultDefinition: "default" Type "{" StyleRule* "}";
 

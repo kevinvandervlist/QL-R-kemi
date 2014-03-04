@@ -5,6 +5,7 @@ keyword Keywords
   | page: "page"
   | section: "section"
   | question: "question"
+  | note: "note"
   | \default: "default"
   | boolean: "boolean"
   | \int: "integer"

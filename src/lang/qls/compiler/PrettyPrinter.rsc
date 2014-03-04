@@ -40,6 +40,9 @@ public str prettyPrint(Definition d: questionDefinition(ident, rules)) =
   '}
   '";
 
+public str prettyPrint(Definition d: noteDefinition(note)) =
+  "note <note>";
+
 public str prettyPrint(Definition d: defaultDefinition(\type, rules)) =
   "default <\type.name> {<for(r <- rules) {>
   '  <prettyPrint(r)><}>

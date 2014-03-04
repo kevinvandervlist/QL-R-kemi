@@ -115,8 +115,11 @@ public list[Definition] getChildSectionsQuestions(Definition d) =
   [
     q |
     Definition q <- toDefinitionList(d.layoutRules),
-    q is sectionDefinition || q is questionDefinition
+    q is sectionDefinition || q is questionDefinition || q is noteDefinition
   ]; 
+
+public list[Definition] getNoteDefinitions(Stylesheet s) =
+  [d | /Definition d <- s, d is noteDefinition];
 
 public list[Definition] getDefaultDefinitions(Stylesheet s) =
   [d | /Definition d <- s, d is defaultDefinition];
