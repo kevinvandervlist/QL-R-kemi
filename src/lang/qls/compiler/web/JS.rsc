@@ -146,9 +146,9 @@ private str getUniqueID(Stylesheet s) =
   s.ident.name;
 
 private str getUniqueID(Definition d: pageDefinition(ident, _)) =
-  "page_<split(" ", unquote(ident))[0]>_" +
+  "page_</^<txt:[A-Za-z]+>.*$/ := unquote(ident) ? txt : "">_" +
   "<d@location.begin.line>_<d@location.begin.column>";
 
 private str getUniqueID(Definition d: sectionDefinition(ident, _)) =
-  "section_<split(" ", unquote(ident))[0]>_" +
+  "section_</^<txt:[A-Za-z]+>.*$/ := unquote(ident) ? txt : "">_" +
   "<d@location.begin.line>_<d@location.begin.column>";
